@@ -1,14 +1,16 @@
 <template>
   <div>
     <header>
-      <h1>智能辅助诊断系统</h1>
+       <span>智能辅助诊断系统</span>
     </header>
     <main>
-      <tumor-type></tumor-type>
+      <div id="left"><left></left></div>
+      <div id="right"><tumor-type></tumor-type></div>
+
     </main>
-    <footer>
-      底部信息
-    </footer>
+<!--    <footer>-->
+<!--      底部信息-->
+<!--    </footer>-->
 
   </div>
 
@@ -17,20 +19,11 @@
 
 <script>
   import TumorType from "./TumorType";
+  import Left from "./left"
   export default {
     name: "index",
     components:{
-      TumorType
-    },
-    data(){
-      return {
-        TumorTypeItemData:[
-          {"id":1,"img":require('@/assets/img/home/home.png'),"name":'胰腺癌'},
-          {"id":2,"img":require('@/assets/img/home/home.png'),"name":'乳腺癌'},
-          {"id":3,"img":require('@/assets/img/home/home.png'),"name":'肺癌'},
-          {"id":4,"img":require('@/assets/img/home/home.png'),"name":'待定癌'},
- ]
-      }
+      TumorType,Left
     }
   }
 </script>
@@ -38,8 +31,26 @@
 <style scoped>
   header{
     background-color: #42b983;
-    height: 100px;
-    margin: 0;
-    padding: 0;
+    height: 70px;
+    line-height: 70px;
+    text-align: center;
+    font-size: 25px;
+    font-weight: bold;
+  }
+  #left{
+
+    /*background: #cccccc;*/
+    width:13%;
+
+  }
+  main{
+
+    height: 100%;
+    display: flex;
+
+  }
+  #right{
+    height: 2000px;
+
   }
 </style>

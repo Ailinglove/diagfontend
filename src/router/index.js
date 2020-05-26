@@ -4,12 +4,13 @@ import Vue from 'vue'
 // import About from "../components/About";
 // import user from "../components/user";
 import Home from "../views/home";
-// 路由懒加载，一个懒加载对应一个js文件
-// const Home=()=>import("~@/views/home")
-// const News=()=>import("~@/views/home")
-// const Message=()=>import("~@/views/home")
+import Breast from "views/tumortype/breast"
+import Pancreas from "views/tumortype/pancreas"
+import Liver from "views/tumortype/liver/index.vue"
+import Lung from "views/tumortype/lung"
+import Other from "views/tumortype/other"
 
-// const About=()=>import("~@/views/home")
+import tumorType from "views/tumortype"
 // const user=()=>import("~@/views/home")
 
 
@@ -22,44 +23,38 @@ const routes=[
     path:'',
     redirect:'/home'
   },
-
-  {path:'/home',
-    meta:{
-      title:'首页'
-    },
-    component:Home,
+  {
+    path:'/tumortype',
+    component: tumorType,
     children:[
-      // {
-      //   path:'',
-      //   redirect:'news'
-      // },
       {
-        path:'/home/message',
-        component:Home,
-        meta:{
-          keepAlive:true
-        }
+        path:'breast',
+        component: Breast
       },
       {
-        path:'/home',
-        component:Home,
-        meta:{
-          keepAlive:true
-        }
+        path:'pancreas',
+        component: Pancreas
+      },
+      {
+        path:'lung',
+        component: Lung
+      },
+      {
+        path:'other',
+        component: Other
       }
     ]
   },
-  {path:'/about',
-    component:Home,
-    meta:{
-      title:'关于'
-    },
 
-  },
+
   {
-    path:'/user/:userId',
-    component:Home
-  }
+    path: '/home',
+    meta: {
+      title: '首页'
+    },
+    component: Home,
+  },
+
 
 ]
 const router=new VueRouter({
